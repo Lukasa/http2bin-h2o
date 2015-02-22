@@ -1,14 +1,16 @@
 FROM ubuntu:trusty
 
+ENV SHA=2a1ea63b85cf2de9edf8490375a2a556e0acf307
+
 RUN \
   apt-get update && \
   apt-get -y upgrade && \
   apt-get install -y wget cmake libyaml-dev libssl-dev build-essential
 
 RUN \
-  wget https://github.com/h2o/h2o/archive/v1.0.0.tar.gz && \
-  tar -xzvf v1.0.0.tar.gz && \
-  cd h2o-1.0.0 && \
+  wget https://github.com/h2o/h2o/archive/${SHA}.tar.gz && \
+  tar -xzvf ${SHA}.tar.gz && \
+  cd h2o-${SHA} && \
   cmake -DCMAKE_INSTALL_PREFIX=/usr/local . && \
   make && \
   make install
