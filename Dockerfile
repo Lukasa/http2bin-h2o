@@ -1,6 +1,6 @@
 FROM ubuntu:trusty
 
-ENV SHA=2a1ea63b85cf2de9edf8490375a2a556e0acf307
+ENV SHA=b40d531d1a7fa8b7ae8a4d9979077465ca0a2972
 
 RUN \
   apt-get update && \
