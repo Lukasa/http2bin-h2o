@@ -1,17 +1,17 @@
 FROM ubuntu:trusty
 
-ENV SHA=b40d531d1a7fa8b7ae8a4d9979077465ca0a2972
+ENV SHA=5203a7d01dad877b9f8e4fc0ac0f27ae5faaba3f
 
 RUN \
   apt-get update && \
   apt-get -y upgrade && \
-  apt-get install -y wget cmake libyaml-dev libssl-dev build-essential
+  apt-get install -y wget cmake build-essential
 
 RUN \
   wget https://github.com/h2o/h2o/archive/${SHA}.tar.gz && \
   tar -xzvf ${SHA}.tar.gz && \
   cd h2o-${SHA} && \
-  cmake -DCMAKE_INSTALL_PREFIX=/usr/local . && \
+  cmake -DWITH_BUNDLED_SSL=on . && \
   make && \
   make install
 
