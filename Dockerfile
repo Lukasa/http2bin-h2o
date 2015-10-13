@@ -1,11 +1,11 @@
 FROM ubuntu:trusty
 
-ENV SHA=5203a7d01dad877b9f8e4fc0ac0f27ae5faaba3f
+ENV SHA=52a3b9b0e3c134fda6f9c2d8a9d489dd993d213e
 
 RUN \
   apt-get update && \
   apt-get -y upgrade && \
-  apt-get install -y wget cmake build-essential
+  apt-get install -y wget cmake build-essential zlib1g-dev
 
 RUN \
   wget https://github.com/h2o/h2o/archive/${SHA}.tar.gz && \
